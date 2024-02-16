@@ -141,7 +141,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/detail', 'detail')->name('detail');
         });
     });
-    
+
     Route::prefix('product')->name('item.')->group(function () {
         Route::controller(ProductController::class)->group(function () {
             Route::get('/', 'index')->name('index');
@@ -226,36 +226,3 @@ Route::controller(PermissionController::class)->prefix('permission')->name('perm
         Route::delete('destroy/{permission}', 'destroy')->name('destroy');
     });
 });
-
-<<<<<<< HEAD
-=======
-Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
-    Route::middleware('role_or_permission:Admin')->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('data_table', 'data_table')->name('data_table');
-        Route::get('create', 'create')->name('create');
-        Route::post('store', 'store')->name('store');
-        Route::get('edit/{permission}', 'edit')->name('edit');
-        Route::put('update/{permission}', 'update')->name('update');
-        Route::delete('destroy/{permission}', 'destroy')->name('destroy');
-    });
-});
-
-Route::get('/thisiswithoutgitlol', function(){
-    return view('LMAO Git is wot");
-});
-
-Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
-    Route::middleware('role_or_permission:Admin')->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('data_table', 'data_table')->name('data_table');
-        Route::get('create', 'create')->name('create');
-        Route::post('store', 'store')->name('store');
-        Route::get('edit/{permission}', 'edit')->name('edit');
-        Route::put('update/{permission}', 'update')->name('update');
-        Route::delete('destroy/{permission}', 'destroy')->name('destroy');
-    });
-});
-
-
->>>>>>> origin/main
