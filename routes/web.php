@@ -131,6 +131,3 @@ Route::controller(PermissionController::class)->prefix('permission')->name('perm
     });
 });
 
-Route::get('/thisiswithoutgitlol',function(){
-    return view('LMAO Git is wot");
-});
