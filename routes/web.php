@@ -73,4 +73,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/detail', 'detail')->name('detail');
         });
     });
+    Route::prefix('add')->name('add.')->group(function () {
+        Route::controller(ProductController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/detail', 'detail')->name('detail');
+        });
+    });
 });
