@@ -81,7 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
     Route::prefix('transaction')->name('transaction.')->group(function () {
-        Route::controller(TransactionController::class)->group(function () {
+        Route::controller(transaction::class)->group(function () {
             Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
@@ -93,5 +93,4 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/detail', 'detail')->name('detail');
         });
     });
-    
 });
