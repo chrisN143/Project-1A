@@ -96,14 +96,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('dontgiveme30dollarhaircut')->name('dontgiveme30dollarhaircut.')->group(function () {
         Route::controller(StoreController::class)->group(function () {
-            Route::get('/', 'index')->name('detail');   
+            Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
     });
 
     Route::prefix('30dollarhaircut')->name('dollarhaircut.')->group(function () {
         Route::controller(StoreController::class)->group(function () {
-            Route::get('/', 'index')->name('detail');   
+            Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
     });
@@ -131,6 +131,12 @@ Route::controller(PermissionController::class)->prefix('permission')->name('perm
     });
 });
 
+Route::get('/thisiswithoutgitlol',function(){
+    return view('LMAO Git is wot");
+});
+Route::get('/thisiswithoutgitlol',function(){
+    return view('ini rikcy");
+});
 Route::get('/thisiswithoutgitlol',function(){
     return view('LMAO Git is wot");
 });
