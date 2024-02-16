@@ -88,7 +88,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::prefix('store')->name('store.')->group(function () {
-        Route::controller(StoreController::class)->group(function () {
+        Route::controller(toreController::class)->group(function () {
             Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
