@@ -94,13 +94,12 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
 
-    Route::prefix('bebas')->name('bebas.')->group(function () {
+    Route::prefix('dontgiveme30dollarhaircut')->name('dontgiveme30dollarhaircut.')->group(function () {
         Route::controller(StoreController::class)->group(function () {
             Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
     });
-
 });
 Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
     Route::middleware('role_or_permission:Admin')->group(function () {
@@ -123,8 +122,4 @@ Route::controller(PermissionController::class)->prefix('permission')->name('perm
         Route::put('update/{permission}', 'update')->name('update');
         Route::delete('destroy/{permission}', 'destroy')->name('destroy');
     });
-
-
-    
 });
-
