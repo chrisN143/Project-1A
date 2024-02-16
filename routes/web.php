@@ -94,3 +94,14 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
 });
+Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
+    Route::middleware('role_or_permission:Admin')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('data_table', 'data_table')->name('data_table');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{permission}', 'edit')->name('edit');
+        Route::put('update/{permission}', 'update')->name('update');
+        Route::delete('destroy/{permission}', 'destroy')->name('destroy');
+    });
+});
