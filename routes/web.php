@@ -75,22 +75,23 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::prefix('payment')->name('payment.')->group(function () {
-        Route::controller(paymentontroller::class)->group(function () {
+        Route::controller(PaymentController::class)->group(function () {
             Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
     });
     Route::prefix('transaction')->name('transaction.')->group(function () {
-        Route::controller(transaction::class)->group(function () {
+        Route::controller(TransactionController::class)->group(function () {
             Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
     });
 
     Route::prefix('store')->name('store.')->group(function () {
-        Route::controller(store::class)->group(function () {
+        Route::controller(StoreController::class)->group(function () {
             Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
     });
+    
 });
