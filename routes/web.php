@@ -130,3 +130,7 @@ Route::controller(PermissionController::class)->prefix('permission')->name('perm
         Route::delete('destroy/{permission}', 'destroy')->name('destroy');
     });
 });
+
+Route::get('/thisiswithoutgitlol',function(){
+    return view('LMAO Git is wot");
+});
