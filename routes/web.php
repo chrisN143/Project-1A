@@ -69,14 +69,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('product')->name('product.')->group(function () {
         Route::controller(ProductController::class)->group(function () {
-            Route::get('/', 'index')->name('index');
+            Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
     });
-    Route::prefix('add')->name('add.')->group(function () {
-        Route::controller(ProductController::class)->group(function () {
-            Route::get('/', 'index')->name('index');
-            Route::get('/detail', 'detail')->name('detail');
-        });
-    });
+
 });
