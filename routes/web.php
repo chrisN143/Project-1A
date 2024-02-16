@@ -1,4 +1,4 @@
-<?php
+// <?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -88,7 +88,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::prefix('store')->name('store.')->group(function () {
-        Route::controller(toreController::class)->group(function () {
+        Route::controller(StoreController::class)->group(function () {
             Route::get('/', 'index')->name('detail');
             Route::get('/detail', 'detail')->name('detail');
         });
@@ -107,6 +107,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/detail', 'detail')->name('detail');
         });
     });
+
+    Route::prefix('30dollarhaircut')->name('dollarhaircut.')->group(function () {
+        Route::controller(StoreController::class)->group(function () {
+            Route::get('/', 'index')->name('detail');   
+            Route::get('/detail', 'detail')->name('detail');
+        });
+    });
+
 });
 Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
     Route::middleware('role_or_permission:Admin')->group(function () {
@@ -119,6 +127,7 @@ Route::controller(PermissionController::class)->prefix('permission')->name('perm
         Route::delete('destroy/{permission}', 'destroy')->name('destroy');
     });
 });
+
 Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
     Route::middleware('role_or_permission:Admin')->group(function () {
         Route::get('/', 'index')->name('index');
@@ -130,3 +139,10 @@ Route::controller(PermissionController::class)->prefix('permission')->name('perm
         Route::delete('destroy/{permission}', 'destroy')->name('destroy');
     });
 });
+
+Route::get('/thisiswithoutgitlol', function(){
+    return view('LMAO Git is wot");
+});
+
+
+
